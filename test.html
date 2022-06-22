@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>查找</title>
+    <title>搜索算法</title>
     <style>
         #td {
             overflow: auto;
@@ -14,8 +14,9 @@
 <body style="background-color:rgb(212, 255, 217);">
 
     <h1 style="text-align: center;">搜索算法</h1>
+    <p align="center" face="宋体">马俊程&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2021K8009929021&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 中国科学院大学人工智能专业</p>
     <hr/>
-    <p style="text-align: center;">亲爱的果壳er！搜索算法是计算机科学中最基础的算法。<br>在本学期，大家在计科导课上学到了三种排序算法，计系的同学们在离散数学课上学习了线性搜索和二分查找两种搜索算法，锻炼了算法思维。
+    <p style="text-align: center;">亲爱的果壳er！搜索算法是计算机科学中最基础的算法之一。<br>在本学期，大家在计科导课上学到了三种排序算法，计系的同学们在离散数学课上学习了线性搜索和二分查找两种搜索算法，锻炼了算法思维。
         <br> 下面简单总结了四种常用搜索算法的原理和复杂度，Hash和BST还配备了<b>爆肝几百行代码的图形化演示</b>，希望能帮助到你的期末复习(❌)，感受到数据结构的魅力。
         <br> [致谢:网页中的部分图片素材来源于
         <a href="https://iowiki.com/data_structures_algorithms/">WIKI教程</a> 和<a href="https://docs.google.com/presentation/d/1Bl-PTBfa5sp1vM1l0OSMpK_0JFQ-MT6je4O26-9ffpg/edit#slide=id.g50738e5fde_0_0">Josh Hug的PPT</a>，打"<sub>*</sub>"的部分参考了相关wiki。]
@@ -52,23 +53,24 @@
                 <h3>原理演示</h3>
                 在一个有序数组中查找33.（深色的部分是待查找的那一部分数组，其中箭头始终指向待查找数组的中间位置）
             </p>
-            <button onclick="changepic(0)">开始</button><br>
+            <button onclick="changepic(0)">开始</button><br><BR>
             <img src="binary_search_0.jpg" alt="这是一张图" id="BS_picture">
         </div>
 
     </div>
     <div>
-        <h2 onclick="display('Hashdiv')">哈希表 Hash Table</h2>
+        <h2 onclick="display('Hashdiv')">哈希查找 Hash Search</h2>
         <div style="display: none;" id="Hashdiv">
             <p>
                 <h3>原理简述</h3>
                 <a href="https://en.wikipedia.org/wiki/Hash_table">哈希表</a> ，也称为哈希映射或字典，是一种可以将键映射到值的结构。先使用哈希函数计算出对象的哈希值，哈希表将哈希值作为对象的索引，将对象储存在数组对应位置。哈希值类似于该对象的指纹，搜索时通过哈希值即可找到相应的对象。我们平时用的磁力链接或种子便应用了哈希的原理。
-                <br> 例如，若'a'的哈希值为1，abomamora的哈希值为111239443，则生成如下哈希表。
+                <br><br> 例如，若'a'的哈希值为1，abomamora的哈希值为111239443，则生成如下哈希表。
                 <br>
                 <img src="HashExample.jpg">
                 <br>显然，这是最朴素的哈希表，占用了太多多余的内存空间。
+                <br><a href="https://github.com/ucasmjc/berkeley_CS61B/tree/main/lab8/hashmap">HashMap的完整代码(Java)</a> 
                 <h3>复杂度分析</h3>
-                哈希表的复杂度要考虑时间复杂度与空间复杂度的权衡，如上述朴素哈希表的时间复杂度为O(1)，可是占用了大量内存。<br> 在实践中，哈希表常不直接用哈希值为索引，而是将N个数哈希值对应到M个桶中（如通过将哈希值模M的方法），从而节省内存。
+                哈希查找的复杂度要考虑时间复杂度与空间复杂度的权衡，如上述朴素哈希表的时间复杂度为O(1)，可是占用了大量内存。<br> 在实践中，哈希表常不直接用哈希值为索引，而是将N个数哈希值对应到M个桶中（如通过将哈希值模M的方法），从而节省内存。
                 <br> 若M是随N的增长变化的，则哈希搜索的平均时间复杂度约为O(1),在实践中往往比其他搜索方法更有效。
                 <h3>原理演示</h3>
                 点击按钮即可随机生成十个三位的字符串，并自动放入Hashtable中。<br> PS:因为不熟悉Js的哈希函数，该示例中的哈希值由自己写的关于字符串的哈希函数唯一确定的。
@@ -139,7 +141,7 @@
 
         <h2 onclick="display('Treediv')">树搜索</h2>
         <div style="display: none;" id="Treediv">
-            <p>
+            <p><h3>什么是树？</h3>
                 <a href="https://zh.wikipedia.org/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)">树(Tree)</a> 是一种抽象数据类型（ADT）或是实现这种抽象数据类型的数据结构。它包含许多节点，和连接这些节点的树枝。
                 <br>
                 <b>树</b>具有以下特点*：
@@ -171,6 +173,7 @@
                     <li>若前者大于后者，则继续搜索该节点右边的子节点，重复这一过程。</li>
                     <li>直到待搜索的子节点为null，说明目标不存在。</li>
                 </ul>
+                <br><a href="https://github.com/ucasmjc/berkeley_CS61B/tree/main/lab7/bstmap">BSTMap的完整代码(Java)</a> 
                 <h4>复杂度分析</h4>
                 BST搜索的复杂度一般为O(log N)，此时为bushy tree，如左图。但在最坏情况下可以达到O(N)，此时为spindly tree，如右图。BST搜索的复杂度与树的深度直接相关，当树不平衡时，搜索效率便会下降。而BST是个比较简陋的树结构，无法实现自平衡以减小树的深度，这也是<a href="https://zh.wikipedia.org/wiki/AVL%E6%A0%91">AVL树</a> ，<a href="https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91">红黑树</a>等平衡查找树被设计的初衷。
                 <br>
@@ -190,7 +193,18 @@
                 <br><br>
                 <button type="button" onclick="BST_Search()">查找</button>
             </form>
-            <canvas id="myCanvas" width="1000" height="1000" style="border:1px solid #000000;"></canvas>
+            <canvas id="myCanvas" width="1000" height="850" style="border:1px solid #000000;"></canvas>
+            <h3>其他的树结构</h3>
+            你可能在上边BST的原理演示中遇见过深度极不平衡的树，这是很正常的，而且数据被放入BST的顺序也会影响树的形状。
+            <br>
+            下面是一些经典的树结构：
+            <ul>
+                <li>可以在一个节点内储存多个内部节点以实现完美平衡的<a href="https://en.wikipedia.org/wiki/B-tree">B-tree</a>,如2-3树，2-3-4树</li>
+                <li>最早被发明的自平衡二叉搜索树——<a href="https://zh.m.wikipedia.org/zh-hans/AVL%E6%A0%91">AVL树，又叫高度平衡树</a></li>
+                <li>脱胎于2-3-4树的<a href="https://zh.wikipedia.org/wiki/%E7%BA%A2%E9%BB%91%E6%A0%91">红黑树</a>,目前被广泛应用，Java中的TreeMap(K,V)内部使用的便是红黑树</li>
+                <li>可以搜索多维变量的<a href="https://zh.m.wikipedia.org/zh-hans/K-d%E6%A0%91">k-d树</a></li>
+            </ul>
+            感兴趣的同学可以在Wiki里了解这些树的原理！
         </div>
     </div>
     <script>
@@ -338,7 +352,21 @@
                 }
             }, 1000)
         }
-
+        function clearColor(index){
+            var presentset = document.getElementById("HashSet");
+            var presentrows = presentset.getElementsByTagName("tr");
+            var presentNodes = presentrows[index + 1].getElementsByTagName("td");
+            var presentNode = presentNodes[1];
+            var LList = HashArray[index];
+            var present = LList.sentinel.next;
+            var newShow = "";
+            while (present != null) {
+                newShow += "<span style =\"color:black;\">" + present.value + "</span>" + "&nbsp;&nbsp;&nbsp;";
+                present = present.next;
+            }
+            presentNode.innerHTML = newShow;
+            HashSearch_mark = false;
+        }
         function showColor(index, mark) {
             var presentset = document.getElementById("HashSet");
             var presentrows = presentset.getElementsByTagName("tr");
@@ -350,7 +378,7 @@
             var LList = HashArray[index];
             if (mark == LList.size) {
                 window.alert("没有找到哦，请再试一次");
-                HashSearch_mark = false;
+                setTimeout(clearColor,2000,index);
                 return;
             }
             var present = LList.sentinel.next;
@@ -361,7 +389,6 @@
                 if (x == mark) {
                     if (present.value == Hash_data[10]) {
                         newShow += "<b style =\"color:green;\">" + present.value + "</b>" + "&nbsp;&nbsp;&nbsp;";
-                        HashSearch_mark = false;
                         bool = false;
                     } else {
                         newShow += "<b style =\"color:red;\">" + present.value + "</b>" + "&nbsp;&nbsp;&nbsp;";
@@ -375,6 +402,8 @@
             presentNode.innerHTML = newShow;
             if (bool) {
                 setTimeout(showColor, 2000, index, mark + 1);
+            } else{
+                setTimeout(clearColor,2000,index);
             }
         }
 
@@ -606,6 +635,7 @@
             } else if (Node.value < target) {
                 setTimeout(BST_get, 2000, Node.right, target);
             } else {
+
                 setTimeout(BST_get, 2000, Node.left, target);
             }
         }
