@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>搜索算法</title>
     <style>
-        #td {
+        p {
+            font: "宋体";
+        }
+        td {
             overflow: auto;
+        }
+        body {
+            background-image: url('back.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: cover;
         }
     </style>
 </head>
 
-<body style="background-color:rgb(212, 255, 217);">
+<body>
 
     <h1 style="text-align: center;">搜索算法</h1>
     <p align="center" face="宋体">马俊程&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2021K8009929021&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 中国科学院大学人工智能专业</p>
     <hr/>
-    <p style="text-align: center;">亲爱的果壳er！搜索算法是计算机科学中最基础的算法之一。<br>在本学期，大家在计科导课上学到了三种排序算法，计系的同学们在离散数学课上学习了线性搜索和二分查找两种搜索算法，锻炼了算法思维。
-        <br> 下面简单总结了四种常用搜索算法的原理和复杂度，Hash和BST还配备了<b>爆肝几百行代码的图形化演示</b>，希望能帮助到你的期末复习(❌)，感受到数据结构的魅力。
-        <br> [致谢:网页中的部分图片素材来源于
-        <a href="https://iowiki.com/data_structures_algorithms/">WIKI教程</a> 和<a href="https://docs.google.com/presentation/d/1Bl-PTBfa5sp1vM1l0OSMpK_0JFQ-MT6je4O26-9ffpg/edit#slide=id.g50738e5fde_0_0">Josh Hug的PPT</a>，打"<sub>*</sub>"的部分参考了相关wiki。]
+    <p style="text-align: center;">亲爱的果壳er，你好！<br>搜索算法是计算机科学中最基础的算法之一。<br>在本学期，大家在计科导课上学到了三种排序算法，计系的同学们在离散数学课上学习了线性搜索和二分查找两种搜索算法，锻炼了算法思维。
+        <br> 下面简单总结了四种常用搜索算法的原理和复杂度，Hash和BST还配备了<b>爆肝几百行代码的图形化演示（这个网页的核心所在）</b>，希望能帮助到你的期末复习(❌)，感受到数据结构的魅力。
+        <br> [致谢：网页中的部分图片素材来源于
+        <a href="https://iowiki.com/data_structures_algorithms/">WIKI教程</a> 和<a href="https://docs.google.com/presentation/d/1Bl-PTBfa5sp1vM1l0OSMpK_0JFQ-MT6je4O26-9ffpg/edit#slide=id.g50738e5fde_0_0">Josh Hug的PPT</a>，打"<sub>*</sub>"的部分参考了相关wiki。（部分链接需要科学上网）]
     </p>
     <div>
         <h2 onclick="display('Linear')">线性搜索 Linear Search</h2>
@@ -49,11 +58,11 @@
                 这种搜索算法每一次比较都使搜索范围缩小一半。
                 <br>各种语言版本的代码实现参考<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%90%9C%E5%B0%8B%E6%BC%94%E7%AE%97%E6%B3%95">wiki</a>
                 <h3>复杂度分析</h3>
-                时间复杂度为O(log(N))
+                时间复杂度为O(logN)
                 <h3>原理演示</h3>
-                在一个有序数组中查找33.（深色的部分是待查找的那一部分数组，其中箭头始终指向待查找数组的中间位置）
+                在一个有序数组中查找31.（深色的部分是待查找的那一部分数组，其中箭头始终指向待查找数组的中间位置）
             </p>
-            <button onclick="changepic(0)">开始</button><br><BR>
+            <button onclick="changepic(0)">开始</button><br><br>
             <img src="binary_search_0.jpg" alt="这是一张图" id="BS_picture">
         </div>
 
@@ -71,9 +80,9 @@
                 <br><a href="https://github.com/ucasmjc/berkeley_CS61B/tree/main/lab8/hashmap">HashMap的完整代码(Java)</a> 
                 <h3>复杂度分析</h3>
                 哈希查找的复杂度要考虑时间复杂度与空间复杂度的权衡，如上述朴素哈希表的时间复杂度为O(1)，可是占用了大量内存。<br> 在实践中，哈希表常不直接用哈希值为索引，而是将N个数哈希值对应到M个桶中（如通过将哈希值模M的方法），从而节省内存。
-                <br> 若M是随N的增长变化的，则哈希搜索的平均时间复杂度约为O(1),在实践中往往比其他搜索方法更有效。
+                <br> 若M是随N的增长变化的，则哈希搜索的平均时间复杂度约为O(1)，在实践中往往比其他搜索方法更有效。
                 <h3>原理演示</h3>
-                点击按钮即可随机生成十个三位的字符串，并自动放入Hashtable中。<br> PS:因为不熟悉Js的哈希函数，该示例中的哈希值由自己写的关于字符串的哈希函数唯一确定的。
+                点击按钮即可随机生成十个三位的字符串，并自动放入HashTable中。<br> PS:因为不熟悉Js的哈希函数，该示例中的哈希值由自己写的关于字符串的哈希函数唯一确定的。
                 <form>
                     <button type="button" onclick="Hash_put()">生成随机字符串</button>
                     <br><br> 随机数：
@@ -96,7 +105,7 @@
                 <div style="height: 370px;">
                     <table border="1" id="HashSet">
                         <caption>
-                            <h4>Hashtable</h4>
+                            <h4>HashTable</h4>
                         </caption>
                         <tr>
                             <th>index</th>
@@ -139,7 +148,7 @@
     </div>
     <div>
 
-        <h2 onclick="display('Treediv')">树搜索</h2>
+        <h2 onclick="display('Treediv')">树搜索 Tree Search</h2>
         <div style="display: none;" id="Treediv">
             <p><h3>什么是树？</h3>
                 <a href="https://zh.wikipedia.org/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)">树(Tree)</a> 是一种抽象数据类型（ADT）或是实现这种抽象数据类型的数据结构。它包含许多节点，和连接这些节点的树枝。
@@ -208,44 +217,28 @@
         </div>
     </div>
     <script>
-        var HCclearmark = true;
-        var Stringlength = 3;
+        var HCclearmark = true;//标志哈希演示是否需要清空
+        var Stringlength = 3;//随机字符串的位数
         var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         var range = charset.length;
-        var Hash_data = new Array();
-        var HC_put_ing = false;
+        var Hash_data = new Array();//哈希随机字符串数组
+        var HC_put_ing = false;//标志哈希是否正在put，以防止打断
         var HashArray = new Array();
-        var BSTput_mark = false;
+        var BSTput_mark = false;//标志BST是否正在put
         var BST_data = new Array();
-        var BSTdata_mark = false;
-        var BSTput_mark = false;
-        var HashSearch_mark = false;
-
-        function changepic(i) {
-            if (i == 7) {
-                return;
-            }
-            var img = document.getElementById("BS_picture");
-            var src = "binary_search_" + i + ".jpg"
-            img.src = src;
-            setTimeout(changepic, 2000, i + 1);
-        }
-
-        function display(id) {
-            var target = document.getElementById(id).style;
-            if (target.display == "none") {
-                target.display = "block";
-            } else {
-                target.display = "none";
-            }
-        }
-        class IntNode {
+        var BSTdata_mark = false;//标志BST是否已生成随机数
+        var HashSearch_mark = false;//标志哈希是否正在show
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");//获取画布
+        var speed = 2;//树枝生长的速度
+        var BSThaveput_mark = false;//标志是否生成树
+        class IntNode {//节点类
             constructor(next, value) {
                 this.next = next;
                 this.value = value;
             }
         }
-        class LinkedList {
+        class LinkedList {//链表，哈希表的桶
             constructor() {
                 this.sentinel = new IntNode(null, null);
                 this.size = 0;
@@ -257,8 +250,79 @@
                 this.size++;
             }
         }
-
-        function RandString() {
+        class BST_Node {//二叉树的节点
+            constructor(value, x, y, delta_X) {
+                this.value = value;
+                this.x = x;
+                this.y = y;
+                this.left = null;
+                this.right = null;
+                this.delta_X = delta_X;
+                this.r = null;
+                this.delta_y = null;
+            }
+            drawCircle() {//默认画浅绿色的圆
+                this.drawCircleH("#a1eda1");
+            }
+            drawCircleH(color) {//根据节点自身的属性画圆
+                ctx.beginPath();
+                ctx.fillStyle = color;
+                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.fillStyle = "black";
+                ctx.font = this.r / 4 * 3 + "px Arial";
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.globalCompositeOperation = "source-over";
+                ctx.fillText(this.value, this.x, this.y);
+                ctx.stroke();
+            }
+            reset(parent, way) {//根据父类parent，设置节点的各属性值
+                this.delta_y = parent.delta_y * 0.8;
+                this.delta_X = parent.delta_X * 0.6;
+                if (this.delta_X == 144) {
+                    this.delta_X = 75;
+                }
+                this.r = parent.r * 0.75;
+                if (this.delta_y < 80) {
+                    this.delta_y = 80;
+                }
+                if (this.r < 15) {
+                    this.r = 12;
+                }
+                if (way) {
+                    this.x = parent.x + this.delta_X;
+                } else {
+                    this.x = parent.x - this.delta_X;
+                }
+                this.y = parent.y + this.delta_y;
+            }
+        }
+        class BST {//二叉树
+            constructor(value) {
+                this.root = new BST_Node(value, 500, 80, 400);
+                this.root.r = 50;
+                this.root.delta_y = 200;
+            }
+        }
+        function changepic(i) {//二分法演示函数
+            if (i == 7) {
+                return;
+            }
+            var img = document.getElementById("BS_picture");
+            var src = "binary_search_" + i + ".jpg"
+            img.src = src;
+            setTimeout(changepic, 2000, i + 1);
+        }
+        function display(id) {//四个部分的展开与折叠函数
+            var target = document.getElementById(id).style;
+            if (target.display == "none") {
+                target.display = "block";
+            } else {
+                target.display = "none";
+            }
+        }
+        function RandString() {//生成一个随机字符串
             var rand = "";
             for (var i = 0; i < 3; i++) {
                 var randStr = Math.round(Math.random() * range);
@@ -266,8 +330,7 @@
             }
             return rand;
         }
-
-        function setRandlist() {
+        function setRandlist() {//生成哈希演示所需字符串并赋值
             var randlist = "";
             for (var i = 0; i < 10; i++) {
                 Hash_data[i] = RandString();
@@ -276,8 +339,7 @@
             Hash_data[10] = null;
             document.getElementById("randStr").innerHTML = randlist;
         }
-
-        function getHashCode(x) {
+        function getHashCode(x) {//得到字符串的哈希值
             var HashCode = 0;
             for (var i = 0; i < Stringlength - 1; i++) {
                 HashCode = (HashCode << 5) + x.charCodeAt(i);
@@ -285,18 +347,16 @@
 
             return HashCode;
         }
-
-        function clearHash() {
+        function clearHash() {//重置哈希演示
             var Hashtable = document.getElementById("Hashtable");
-            Hashtable.innerHTML = "<tr><th>序号</th><th>数字</th><th>HashCode</th><th>HashCode mod 5</th></tr>";
+            Hashtable.innerHTML = "<caption><h4>Hash对应表</h4></caption><tr><th>序号</th><th>数字</th><th>HashCode</th><th>HashCode mod 5</th></tr>";
             var rowSet = document.getElementById("HashSet").getElementsByTagName("tr");
             for (var i = 1; i < 7; i++) {
                 rowSet[i].getElementsByTagName("td")[1].innerHTML = "";
             }
             HCclearmark = true;
         }
-
-        function onceputTable(presentTable, i, id) {
+        function onceputTable(presentTable, i, id) {//将一个哈希数据放进对照表格里
             var newrow = presentTable.insertRow(i + 1);
             newrow.id = id;
             var cell1 = newrow.insertCell(0);
@@ -314,12 +374,12 @@
             cell4.innerHTML = key;
         }
 
-        function onceputSet(allrows, i) {
+        function onceputHashTable(allrows, i) {//将一个数据放进哈希表里
             var lines = allrows[key + 1].getElementsByTagName("td");
             lines[1].innerHTML += Hash_data[i] + "&nbsp;&nbsp;&nbsp;";
         }
 
-        function Hash_put() {
+        function Hash_put() {//哈希put函数
             if (HashSearch_mark) {
                 window.alert("请等本次查找结束！")
                 return;
@@ -343,7 +403,7 @@
             var i = 0
             var interval = setInterval(function() {
                 onceputTable(presentTable, i, i + 1);
-                onceputSet(allrows, i);
+                onceputHashTable(allrows, i);
                 i++;
                 if (i == 10) {
                     document.getElementById("HCshow").style.display = "block";
@@ -352,7 +412,7 @@
                 }
             }, 1000)
         }
-        function clearColor(index){
+        function clearColor(index){//在哈希show完重置，以准备下一次查找
             var presentset = document.getElementById("HashSet");
             var presentrows = presentset.getElementsByTagName("tr");
             var presentNodes = presentrows[index + 1].getElementsByTagName("td");
@@ -367,7 +427,7 @@
             presentNode.innerHTML = newShow;
             HashSearch_mark = false;
         }
-        function showColor(index, mark) {
+        function showColor(index, mark) {//哈希show中改变数据颜色的函数
             var presentset = document.getElementById("HashSet");
             var presentrows = presentset.getElementsByTagName("tr");
             var presentNodes = presentrows[index + 1].getElementsByTagName("td");
@@ -407,7 +467,7 @@
             }
         }
 
-        function Hash_show() {
+        function Hash_show() {//哈希展示函数
             if (HashSearch_mark) {
                 window.alert("请等本次查找结束后再进行下一次哦。")
                 return;
@@ -439,70 +499,13 @@
                 presentSet[tarKey + 1].getElementsByTagName("td")[0].style.backgroundColor = "red";
                 setTimeout(showColor, 2000, tarKey, 0);
             }, 2000);
-        } //问题：target为空，清空target行(table中)，每次show之前检查clear
-        class BST_Node {
-            constructor(value, x, y, delta_X) {
-                this.value = value;
-                this.x = x;
-                this.y = y;
-                this.left = null;
-                this.right = null;
-                this.delta_X = delta_X;
-                this.r = null;
-                this.delta_y = null;
-            }
-            drawCircle() {
-                this.drawCircleH("#a1eda1");
-            }
-            drawCircleH(color) {
-                ctx.beginPath();
-                ctx.fillStyle = color;
-                ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
-                ctx.fill();
-                ctx.fillStyle = "black";
-                ctx.font = this.r / 4 * 3 + "px Arial";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-                ctx.globalCompositeOperation = "source-over";
-                ctx.fillText(this.value, this.x, this.y);
-                ctx.stroke();
-
-            }
-            reset(parent, way) {
-                this.delta_y = parent.delta_y * 0.8;
-                this.delta_X = parent.delta_X * 0.6;
-                if (this.delta_X == 144) {
-                    this.delta_X = 80;
-                }
-                this.r = parent.r * 0.75;
-                if (this.delta_y < 80) {
-                    this.delta_y = 80;
-                }
-                if (this.r < 15) {
-                    this.r = 15;
-                }
-                if (way) {
-                    this.x = parent.x + this.delta_X;
-                } else {
-                    this.x = parent.x - this.delta_X;
-                }
-                this.y = parent.y + this.delta_y;
-            }
-        }
-        class BST {
-            constructor(value) {
-                this.root = new BST_Node(value, 500, 80, 400);
-                this.root.r = 50;
-                this.root.delta_y = 200;
-            }
-        }
-
-        function clearAll() {
+        } 
+        function clearAll() {//清空画布
             ctx.clearRect(0, 0, 1000, 1000);
         }
-
-        function setRandNumlist() {
+        function setRandNumlist() {//获得一组随机数并赋值
             clearAll();
+            BSThaveput_mark = false;
             var randlist = "";
             for (var i = 0; i < 10; i++) {
                 BST_data[i] = Math.round(Math.random() * 100);
@@ -511,18 +514,14 @@
             BSTdata_mark = true;
             document.getElementById("randNum").innerHTML = randlist;
         }
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
-        var speed = 2;
-
-        function lineMove(x1, y1, x2, y2) {
+        function lineMove(x1, y1, x2, y2) {//动态画树枝函数
             let dx = x2 - x1;
             let dy = y2 - y1;
             if (Math.abs(dx) < 1 && Math.abs(dy) < 1) {
                 return;
             }
             let x = x1,
-                y = y1; //线条绘制过程中的终点          
+                y = y1;     
             let rate = dy / dx;
             x += (speed * dx) / Math.abs(dx);
             y += (speed * rate * dx) / Math.abs(dx);
@@ -532,9 +531,8 @@
                 lineMove(x, y, x2, y2);
             });
         }
-
-        function drawLine(x1, y1, x2, y2) {
-            ctx.beginPath(); //不写每次都会重绘上次的线
+        function drawLine(x1, y1, x2, y2) {//静态画连线
+            ctx.beginPath();
             ctx.globalCompositeOperation = "destination-over";
             var grd = ctx.createLinearGradient(x1, y1, x2, y2);
             ctx.moveTo(x1, y1);
@@ -542,8 +540,7 @@
             ctx.closePath();
             ctx.stroke();
         }
-
-        function changeList(index, color) {
+        function changeList(index, color) {//改变随机数列的颜色
             presentList = document.getElementById("randNum");
             var newList = "";
             for (var i = 0; i < 10; i++) {
@@ -555,8 +552,7 @@
             }
             presentList.innerHTML = newList;
         }
-
-        function put(Node, index) {
+        function put(Node, index) {//将新节点在节点Node处put进BST，其value为BST_data[index]
             value = BST_data[index];
             if (Node == null) {
                 mark = true;
@@ -587,12 +583,13 @@
             return Node;
         }
 
-        function BST_put() {
-            BSTput_mark = true;
+        function BST_put() {//BST树生成函数 
             if (!BSTdata_mark) {
-                Window.alert("请先生成随机数。");
+                window.alert("请先生成随机数。");
                 return;
             }
+            BSThaveput_mark = true;
+            BSTput_mark = true;
             presentTree = new BST(BST_data[0]);
             presentTree.root.drawCircle();
             changeList(0, "green");
@@ -608,20 +605,21 @@
             }, 2000);
 
         }
-
-        function BST_clearSearch(Node, target) {
+        function BST_clearSearch(Node, target) {//重置搜索状态，以准备下一次搜索
             if (Node == null) {
                 return;
             }
             Node.drawCircleH("#a1eda1");
             if (Node.value < target) {
+                Node.drawCircleH("#a1eda1");
                 BST_clearSearch(Node.right, target);
             } else {
+                Node.drawCircleH("#a1eda1");
                 BST_clearSearch(Node.left, target);
             }
         }
 
-        function BST_get(Node, target) {
+        function BST_get(Node, target) {//BST搜索演示函数
             if (Node == null) {
                 BST_clearSearch(presentTree.root, target);
                 window.alert("没有找到目标值，请重新查找。");
@@ -633,14 +631,19 @@
                 setTimeout(BST_clearSearch, 2000, presentTree.root, target);
                 return;
             } else if (Node.value < target) {
+                Node.drawCircleH("#0000ff");
                 setTimeout(BST_get, 2000, Node.right, target);
             } else {
-
+                Node.drawCircleH("#0000ff");
                 setTimeout(BST_get, 2000, Node.left, target);
             }
         }
 
-        function BST_Search() {
+        function BST_Search() {//BST搜索函数入口
+            if(!BSThaveput_mark) {
+                window.alert("请先生成树！");
+                return;
+            }
             if (BSTput_mark) {
                 window.alert("请等待树生成完毕。");
                 return;
@@ -655,5 +658,4 @@
         }
     </script>
 </body>
-
 </html>
